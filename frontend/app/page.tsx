@@ -1,48 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { connection, getCurrentSlot } from '@/lib/solana';
-import { fetchBoard, fetchRound } from '@/lib/accounts';
-import type { Board, Round } from '@/lib/types';
 import { Grid } from '@/components/Grid';
 import { Motherlode } from '@/components/Motherlode';
 import { Timer } from '@/components/Timer';
 import { Stats } from '@/components/Stats';
+import { useRoundData } from '@/hooks/useRoundData';
 
 export default function Home() {
-  const [board, setBoard] = useState<Board | null>(null);
-  const [round, setRound] = useState<Round | null>(null);
-  const [currentSlot, setCurrentSlot] = useState<bigint>(0n);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-
-        // Fetch Board account
-        const boardData = await fetchBoard(connection);
-        setBoard(boardData);
-
-        // Fetch current Round account
-        const roundData = await fetchRound(connection, boardData.roundId);
-        setRound(roundData);
-
-        // Get current slot
-        const slot = await getCurrentSlot();
-        setCurrentSlot(BigInt(slot));
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError(err instanceof Error ? err.message : 'Unknown error');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  const { board, round, currentSlot, loading, error, lastUpdate } = useRoundData();
 
   if (loading) {
     return (
@@ -50,6 +15,7 @@ export default function Home() {
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
           <p className="text-xl">Loading ORE data from blockchain...</p>
+          <p className="text-sm text-gray-400 mt-2">Connecting to Solana mainnet via WebSocket...</p>
         </div>
       </main>
     );
@@ -88,6 +54,17 @@ export default function Home() {
     );
   }
 
+  // Format last update time
+  const formatUpdateTime = (date: Date) => {
+    const now = new Date();
+    const diff = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    if (diff < 5) return 'just now';
+    if (diff < 60) return `${diff}s ago`;
+    if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+    return date.toLocaleTimeString();
+  };
+
   return (
     <main className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-7xl mx-auto">
@@ -99,8 +76,19 @@ export default function Home() {
           <p className="text-gray-400">
             Round <span className="font-bold text-white">#{board.roundId.toString()}</span>
           </p>
-          <div className="inline-block mt-2 px-4 py-1 bg-green-900/30 border border-green-500 rounded-full text-sm text-green-400">
-            ✅ Live from Solana Mainnet
+
+          {/* Live indicator */}
+          <div className="flex items-center justify-center gap-3 mt-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1 bg-green-900/30 border border-green-500 rounded-full text-sm text-green-400">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              Live via WebSocket
+            </div>
+            <div className="text-xs text-gray-500">
+              Updated {formatUpdateTime(lastUpdate)}
+            </div>
           </div>
         </div>
 
@@ -112,10 +100,15 @@ export default function Home() {
 
         {/* Mining Grid */}
         <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 mb-8 border border-gray-700">
-          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-            <span>⛏️</span>
-            Mining Grid
-          </h2>
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <span>⛏️</span>
+              Mining Grid
+            </h2>
+            <div className="text-xs text-gray-500 font-mono">
+              Real-time updates
+            </div>
+          </div>
           <Grid deployed={round.deployed} count={round.count} />
         </div>
 
@@ -129,10 +122,11 @@ export default function Home() {
         </div>
 
         {/* Footer Info */}
-        <div className="text-center text-gray-500 text-sm">
+        <div className="text-center text-gray-500 text-sm space-y-1">
           <p>Slots: {board.startSlot.toString()} → {board.endSlot.toString()}</p>
-          <p className="mt-1">
-            Built with ❤️ using Solana Web3.js
+          <p>Current Slot: {currentSlot.toString()}</p>
+          <p className="mt-2">
+            Built with ❤️ using Solana Web3.js WebSockets
           </p>
         </div>
       </div>
