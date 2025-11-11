@@ -275,7 +275,7 @@ feat: add motherlode bonus calculation
 
 Implement motherlode bonus pool accumulation and distribution
 logic. Each round adds escalating ORE (0.2, 0.3, 0.4, etc.) to
-the pool, with escalating hit chance ((round_id + 1)/625).
+the pool, with escalating hit chance (capped at 50%).
 
 Closes #123
 ```

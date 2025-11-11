@@ -169,7 +169,7 @@ pub struct Reset {}
 - Validates round duration has elapsed
 - Selects winning block using on-chain randomness
 - Calculates rewards for winning miners
-- Determines if motherlode was hit (escalating chance: (round_id + 1)/625)
+- Determines if motherlode was hit (escalating chance: min((round_id + 1), 312)/625, capped at 50%)
 - Creates new round account
 - Updates board to new round number
 

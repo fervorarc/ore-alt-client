@@ -21,12 +21,12 @@ Motherlode
   - Round 2: +0.4 ORE
   - Round 3: +0.5 ORE
   - And so on... (increases by +0.1 ORE each round)
-- When the winning block is revealed, the chance of hitting the motherlode escalates with each round:
+- When the winning block is revealed, the chance of hitting the motherlode escalates with each round, capped at 50%:
   - Round 0: 1 in 625 chance (0.16%)
   - Round 1: 2 in 625 chance (0.32%)
   - Round 10: 11 in 625 chance (1.76%)
   - Round 100: 101 in 625 chance (16.16%)
-  - Round 624 and beyond: Guaranteed hit (100%)
+  - Round 311 and beyond: 312 in 625 chance (50% maximum)
 - If the motherlode is hit, the entire accumulated pool is split by the winning miners in proportion to the size of their claimed space on the winning block.
 - If the motherlode is not hit, the pool keeps accumulating with both escalating rewards AND escalating hit chances, creating exponentially growing excitement as rounds progress.
 
