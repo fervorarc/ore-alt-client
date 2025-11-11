@@ -94,7 +94,11 @@ impl Round {
     }
 
     pub fn did_hit_motherlode(&self, rng: u64) -> bool {
-        rng.reverse_bits() % 625 == 0
+        // Escalating chance: increases by 1/625 each round, capped at 50%
+        // Round 0: 1/625 (0.16%), Round 1: 2/625 (0.32%), etc.
+        // Caps at round 311: 312/625 (49.92% ≈ 50%)
+        let num_chances = (self.id + 1).min(312); // Cap at 50% (312/625)
+        rng.reverse_bits() % 625 < num_chances
     }
 }
 
