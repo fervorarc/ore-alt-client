@@ -94,7 +94,11 @@ impl Round {
     }
 
     pub fn did_hit_motherlode(&self, rng: u64) -> bool {
-        rng.reverse_bits() % 625 == 0
+        // Escalating chance: increases by 1/625 each round
+        // Round 0: 1/625, Round 1: 2/625, Round 2: 3/625, etc.
+        // After round 624, it's guaranteed (625/625 = 100%)
+        let num_chances = (self.id + 1).min(625);
+        rng.reverse_bits() % 625 < num_chances
     }
 }
 

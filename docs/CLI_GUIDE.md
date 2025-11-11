@@ -223,7 +223,7 @@ ore-cli reset
 - Can only be called after round duration elapses
 - Selects winning block via on-chain randomness
 - Anyone can call this (gas paid by caller)
-- May hit motherlode (1/625 chance)
+- May hit motherlode (escalating chance: round 0 = 1/625, round 100 = 101/625, etc.)
 
 ---
 
