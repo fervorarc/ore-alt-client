@@ -43,7 +43,7 @@ Tokenomics
 Learn about the token.
 ORE tokenomics are optimized for longterm holders.
 Supply
-ORE is a fair launch cryptocurrency. It has a capped maximum supply of 100 million tokens and zero insider or team allocations. All minting is programmatically controlled by a smart contract on the Solana blockchain. The protocol mints approximately +1 ORE per minute as part of the standard mining process. New tokens can always be mined as long as the current circulating supply is below the maximum supply limit.
+ORE is a fair launch cryptocurrency. It has a capped maximum supply of 10 million tokens and zero insider or team allocations. All minting is programmatically controlled by a smart contract on the Solana blockchain. The protocol mints approximately +1 ORE per minute as part of the standard mining process. New tokens can always be mined as long as the current circulating supply is below the maximum supply limit.
 Demand
 10% of all SOL mining rewards are collected by the protocol as revenue. The protocol automatically uses this revenue to buyback the ORE token off open market, reducing circulating supply. These buybacks help offset the cost to holders of mining new tokens. The term "bury" is used here to indicate that burned tokens can be reminted as long as circulating supply is below the maximum supply limit.
 Fees

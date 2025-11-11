@@ -120,7 +120,7 @@ All instruction handlers import `use steel::*;` and follow Steel's patterns for 
 
 - Token decimals: 11 (100 billion indivisible units per ORE, called "grams")
 - `ONE_ORE = 10^11`
-- Max supply: 100 million ORE
+- Max supply: 10 million ORE
 - ORE mint address: `oreoU2P8bN6jkk3jbaiVxYnG1dCXcYxwhwyK9jSybcp`
 
 ### Time Constants
