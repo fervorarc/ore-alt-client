@@ -41,8 +41,8 @@ pub const ONE_WEEK_SLOTS: u64 = 7 * ONE_DAY_SLOTS;
 /// The number of slots for breather between rounds.
 pub const INTERMISSION_SLOTS: u64 = 35;
 
-/// The maximum token supply (5 million).
-pub const MAX_SUPPLY: u64 = ONE_ORE * 5_000_000;
+/// The maximum token supply (100 million).
+pub const MAX_SUPPLY: u64 = ONE_ORE * 100_000_000;
 
 /// The seed of the automation account PDA.
 pub const AUTOMATION: &[u8] = b"automation";

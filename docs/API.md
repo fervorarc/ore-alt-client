@@ -34,7 +34,7 @@ The ORE API is organized into several modules:
 | **Program ID** | `oreV3EG1i9BEgiAJ8b177Z2S2rMarzak4NMv1kULvWv` |
 | **Token Mint** | `oreoU2P8bN6jkk3jbaiVxYnG1dCXcYxwhwyK9jSybcp` |
 | **Decimals** | 11 (100 billion indivisible units per ORE) |
-| **Max Supply** | 5,000,000 ORE |
+| **Max Supply** | 100,000,000 ORE |
 | **Admin Address** | `HBUh9g46wk2X89CvaNN15UmsznP59rh6od1h8JwYAopk` |
 
 ## Instructions

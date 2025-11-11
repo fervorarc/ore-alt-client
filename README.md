@@ -4,7 +4,7 @@
 ![Solana](https://img.shields.io/badge/blockchain-Solana-blueviolet)
 ![Version](https://img.shields.io/badge/version-3.7.0--alpha-orange)
 
-ORE is a Solana-native digital store of value with a capped maximum supply of 5 million tokens. It combines innovative mining mechanics with staking rewards and automated buyback mechanisms to create a trustless, decentralized cryptocurrency optimized for long-term holders.
+ORE is a Solana-native digital store of value with a capped maximum supply of 100 million tokens. It combines innovative mining mechanics with staking rewards and automated buyback mechanisms to create a trustless, decentralized cryptocurrency optimized for long-term holders.
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ ORE is designed from the ground up to serve as a Solana-native store of value wi
 **Program ID**: `oreV3EG1i9BEgiAJ8b177Z2S2rMarzak4NMv1kULvWv`
 **Token Mint**: `oreoU2P8bN6jkk3jbaiVxYnG1dCXcYxwhwyK9jSybcp`
 **Decimals**: 11 (100 billion indivisible units per ORE, called "grams")
-**Max Supply**: 5,000,000 ORE
+**Max Supply**: 100,000,000 ORE
 
 ## Key Features
 
@@ -175,7 +175,7 @@ ORE holders can stake their tokens to earn yield from protocol revenue:
 ### Supply
 
 - **Fair Launch**: No team or insider allocations
-- **Maximum Supply**: 5,000,000 ORE (capped)
+- **Maximum Supply**: 100,000,000 ORE (capped)
 - **Emission Rate**: ~1 ORE per minute from mining
 - **Reminting**: Burned tokens can be reminted while under max supply
 

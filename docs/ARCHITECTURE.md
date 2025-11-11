@@ -564,7 +564,7 @@ This prevents replaying old transactions.
 ### Token Supply
 
 - **Decimals**: 11 (1 ORE = 10^11 grams)
-- **Max Supply**: 5,000,000 ORE
+- **Max Supply**: 100,000,000 ORE
 - **Emission**: ~1 ORE per minute from mining
 - **Current Supply**: `treasury.total_minted - treasury.total_burned`
 
