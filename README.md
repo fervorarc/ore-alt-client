@@ -142,10 +142,15 @@ Visit `http://localhost:3000` to view the mining dashboard.
 
 ### Motherlode
 
-- Each round, +0.2 ORE is added to the motherlode pool
+- Each round adds escalating ORE to the motherlode pool:
+  - Round 0: +0.2 ORE
+  - Round 1: +0.3 ORE
+  - Round 2: +0.4 ORE
+  - Round 3: +0.5 ORE
+  - And so on... (+0.1 ORE increment per round)
 - 1/625 chance the winning block hits the motherlode
-- When hit, pool is distributed to winning miners proportionally
-- If not hit, pool accumulates for future rounds
+- When hit, entire accumulated pool is distributed to winning miners proportionally
+- If not hit, pool continues growing for future rounds
 
 ### Refining Fee
 

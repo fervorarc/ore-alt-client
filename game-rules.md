@@ -15,10 +15,15 @@ How it works
 - Alternatively, half of the time, one winning miner will be selected by weighted random chance to receive the entire +1 ORE reward.
 
 Motherlode
-- Each round, +0.2 ORE is minted and added to the motherlode pool. 
-- When the winning block is revealed, there is a 1 in 625 chance that those winning miners will also hit the motherlode. 
-- If the motherlode is hit, the pool is split by the winning miners in proportion to the size of their claimed space on the winning block. 
-- Alternatively, if the motherlode is not hit, the pool keeps accumulating and will be distributed to winning miners when it is hit in a future round.
+- Each round, an escalating amount of ORE is minted and added to the motherlode pool:
+  - Round 0: +0.2 ORE
+  - Round 1: +0.3 ORE
+  - Round 2: +0.4 ORE
+  - Round 3: +0.5 ORE
+  - And so on... (increases by +0.1 ORE each round)
+- When the winning block is revealed, there is a 1 in 625 chance that those winning miners will also hit the motherlode.
+- If the motherlode is hit, the entire accumulated pool is split by the winning miners in proportion to the size of their claimed space on the winning block.
+- Alternatively, if the motherlode is not hit, the pool keeps accumulating with escalating increments and will be distributed to winning miners when it is hit in a future round.
 
 Refining
 A "refining fee" of 10% is applied to all ORE mining rewards when claimed. The proceeds from this fee are automatically redistributed to other miners in proportion to their unclaimed ORE mining rewards. Thus, the longer a miner holds onto their mined ORE, the more refined ORE they will receive. The net effect of this process is to redistribute tokens to longer term holders.
