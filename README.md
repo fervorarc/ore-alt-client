@@ -144,10 +144,10 @@ Visit `http://localhost:3000` to view the mining dashboard.
 
 - Each round adds escalating ORE to the motherlode pool:
   - Round 0: +0.2 ORE
-  - Round 1: +0.3 ORE
-  - Round 2: +0.4 ORE
-  - Round 3: +0.5 ORE
-  - And so on... (+0.1 ORE increment per round)
+  - Round 1: +0.4 ORE
+  - Round 2: +0.6 ORE
+  - Round 3: +0.8 ORE
+  - And so on... (+0.2 ORE increment per round)
 - Hit chance also escalates per round, capped at 50%:
   - Round 0: 1/625 (0.16%)
   - Round 1: 2/625 (0.32%)

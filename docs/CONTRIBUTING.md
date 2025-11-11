@@ -274,7 +274,7 @@ git commit -m "feat: add new mining instruction"
 feat: add motherlode bonus calculation
 
 Implement motherlode bonus pool accumulation and distribution
-logic. Each round adds escalating ORE (0.2, 0.3, 0.4, etc.) to
+logic. Each round adds escalating ORE (0.2, 0.4, 0.6, etc.) to
 the pool, with escalating hit chance (capped at 50%).
 
 Closes #123

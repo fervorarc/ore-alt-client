@@ -17,10 +17,10 @@ How it works
 Motherlode
 - Each round, an escalating amount of ORE is minted and added to the motherlode pool:
   - Round 0: +0.2 ORE
-  - Round 1: +0.3 ORE
-  - Round 2: +0.4 ORE
-  - Round 3: +0.5 ORE
-  - And so on... (increases by +0.1 ORE each round)
+  - Round 1: +0.4 ORE
+  - Round 2: +0.6 ORE
+  - Round 3: +0.8 ORE
+  - And so on... (increases by +0.2 ORE each round)
 - When the winning block is revealed, the chance of hitting the motherlode escalates with each round, capped at 50%:
   - Round 0: 1 in 625 chance (0.16%)
   - Round 1: 2 in 625 chance (0.32%)

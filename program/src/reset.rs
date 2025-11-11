@@ -187,10 +187,10 @@ pub fn process_reset(accounts: &[AccountInfo<'_>], _data: &[u8]) -> ProgramResul
     }
 
     // Mint escalating ORE to the motherlode rewards pool.
-    // Starts at 0.2 ORE and increases by 0.1 ORE each round (0.2, 0.3, 0.4, 0.5, etc.)
+    // Starts at 0.2 ORE and increases by 0.2 ORE each round (0.2, 0.4, 0.6, 0.8, etc.)
     let mint = mint_info.as_mint()?;
     let base_motherlode = ONE_ORE / 5; // 0.2 ORE
-    let increment_per_round = ONE_ORE / 10; // 0.1 ORE
+    let increment_per_round = ONE_ORE / 5; // 0.2 ORE
     let motherlode_for_round = base_motherlode + (increment_per_round * round.id);
     let motherlode_mint_amount = MAX_SUPPLY.saturating_sub(mint.supply()).min(motherlode_for_round);
     if motherlode_mint_amount > 0 {
